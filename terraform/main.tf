@@ -1,3 +1,7 @@
+# Creating a VPC____________________
+
+
+
 # Create an S3 bucket___________________________________________________________________
 
 resource "aws_s3_bucket" "tf-bucket-tungstennn" {
@@ -49,21 +53,21 @@ resource "aws_security_group" "rds_sg" {
 
 # Create an RDS instance________________________________________________________________
 
-# resource "aws_db_instance" "rds_instance" {
-#   allocated_storage      = 10
-#   db_name                = "mydb"
-#   engine                 = "mysql"
-#   engine_version         = "8.0"
-#   instance_class         = "db.t3.micro"
-#   username               = "tungstennnuser1"
-#   password               = var.db_password
-#   publicly_accessible    = false
-#   parameter_group_name   = "default.mysql8.0"
-#   skip_final_snapshot    = true
-#   vpc_security_group_ids = [aws_security_group.rds_sg.id]
-#   storage_encrypted      = true
+resource "aws_db_instance" "rds_instance" {
+  allocated_storage      = 10
+  db_name                = "mydb"
+  engine                 = "mysql"
+  engine_version         = "8.0"
+  instance_class         = "db.t3.micro"
+  username               = "tungstennnuser1"
+  password               = var.db_password
+  publicly_accessible    = true
+  parameter_group_name   = "default.mysql8.0"
+  skip_final_snapshot    = true
+  vpc_security_group_ids = [aws_security_group.rds_sg.id]
+  storage_encrypted      = true
 
-#   tags = {
-#     Name = "${var.db_username}-instance"
-#   }
-# }
+  tags = {
+    Name = "${var.db_username}-instance"
+  }
+}

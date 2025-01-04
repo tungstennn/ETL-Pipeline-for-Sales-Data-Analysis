@@ -3,7 +3,7 @@
 variable "region" {
   description = "AWS region"
   type        = string
-  default     = "us-west-2"
+  default     = "eu-west-2"
 }
 
 # S3 variables__________________________
@@ -17,11 +17,11 @@ variable "bucket_name" {
 # RDS variables_________________________
 
 variable "db_username" {
-    description = "Username for the database"
-    type        = string
+  description = "Username for the database"
+  type        = string
 }
 
 variable "db_password" {
-    description = "Password for the database"
-    type        = string
+  description = "Password for the database"
+  type        = string
 }
