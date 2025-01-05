@@ -64,24 +64,9 @@ This project implements an **ETL (Extract, Transform, Load) pipeline** using **A
 4. **Improved ETL Triggers**:
    - Instead of manually triggering the ETL pipeline, implement an **AWS Lambda function** or a scheduled job to automatically start the ETL process when a new file is uploaded to the S3 bucket.
 
-5. **Secrets Management**:
-   - Replace hardcoded credentials in the code (e.g., RDS username and password) with **AWS Secrets Manager** or **Parameter Store** to securely manage and retrieve sensitive information.
-
-6. **Data Monitoring and Logging**:
-   - Integrate **CloudWatch Logs** to monitor the ETL process, track errors, and generate alerts for failures.
-   - Include detailed logging at each stage of the ETL pipeline to improve debugging and auditability.
-
-7. **Scalability**:
-   - Move the RDS instance to private subnets for production use, ensuring it is not publicly accessible.
-   - Consider using **Amazon Aurora MySQL** for enhanced scalability and performance.
-
-8. **Data Validation**:
-   - Add more robust data validation checks during the transformation stage, such as enforcing schema conformity, handling duplicates, and verifying data completeness.
-
-9. **Documentation**:
-   - Include detailed comments and docstrings in the `etl_pipeline.py` script to make it more maintainable and easier for new developers to understand.
+5. **Documentation**:
    - Expand on the README to include flow diagrams and visuals of the pipeline architecture.
 
-10. **Data Visualization**:
+6. **Data Visualization**:
     - Enhance the project by integrating a visualization tool (e.g., **Tableau** or **Power BI**) to create dashboards and meaningful insights from the transformed data in the RDS database.
 
