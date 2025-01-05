@@ -25,8 +25,9 @@ The infrastructure and ETL process are automated and modular, demonstrating a ro
   1. `01_extract_data.ipynb`: Extracts data from S3 into a Pandas DataFrame.
   2. `02_transform_data.ipynb`: Cleans and transforms the data.
   3. `03_load_data.ipynb`: Loads the transformed data into the RDS MySQL database.
+- **Single Production-ready Script**:
 
-- **Single Production-ready Script:
+
   - 
 ---
 
