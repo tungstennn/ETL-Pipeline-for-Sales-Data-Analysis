@@ -3,8 +3,6 @@
 ## **Project Overview**
 This project implements an **ETL (Extract, Transform, Load) pipeline** using **AWS services** and **Terraform** for infrastructure as code (IaC). The pipeline extracts raw data from an **S3 bucket**, transforms it using **Python (with Pandas)**, and loads the cleaned data into an **Amazon RDS MySQL database**.
 
-The infrastructure and ETL process are automated and modular, demonstrating a robust approach to handling data engineering workflows.
-
 ---
 
 ## **Key Features**
