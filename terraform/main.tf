@@ -1,5 +1,77 @@
 # Creating a VPC____________________
 
+resource "aws_vpc" "main" {
+  cidr_block           = var.cidr_block #"10.0.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+  tags = {
+    Name = var.vpc_name
+  }
+}
+
+# Create public subnet 1
+
+resource "aws_subnet" "public_subnet_1" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.subnet_cidr_blocks[0]
+  availability_zone       = "eu-west-2a"
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name = "public-subnet-2a"
+  }
+}
+
+# Create public subnet 2
+
+resource "aws_subnet" "public_subnet_2" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.subnet_cidr_blocks[1]
+  availability_zone       = "eu-west-2b"
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name = "public-subnet-2b"
+  }
+}
+
+# Creating an IGW and attach to VPC
+
+resource "aws_internet_gateway" "my_igw" {
+  vpc_id = aws_vpc.main.id
+  count  = 1
+
+  tags = {
+    Name = "my-igw"
+  }
+}
+
+# creating route table
+
+resource "aws_route_table" "my_route_table" {
+  count  = 1
+  vpc_id = aws_vpc.main.id
+
+  route {
+    cidr_block = "0.0.0.0/0" # Represents all traffic destined for outside the VPC
+    gateway_id = aws_internet_gateway.my_igw[0].id
+  }
+  tags = {
+    Name = "my-rt"
+  }
+}
+
+# Associate route table with subnet
+
+resource "aws_route_table_association" "public_association_1" {
+  subnet_id      = aws_subnet.public_subnet_1.id
+  route_table_id = aws_route_table.my_route_table[0].id
+}
+
+resource "aws_route_table_association" "public_association_2" {
+  subnet_id      = aws_subnet.public_subnet_2.id
+  route_table_id = aws_route_table.my_route_table[0].id
+}
 
 
 # Create an S3 bucket___________________________________________________________________
@@ -32,6 +104,8 @@ resource "aws_s3_object" "provision_source_files" {
 resource "aws_security_group" "rds_sg" {
   name        = "rds-sg"
   description = "Security group for RDS instance"
+  vpc_id      = aws_vpc.main.id
+
 
   # Allow inbound MySQL traffic
   ingress {
@@ -51,7 +125,18 @@ resource "aws_security_group" "rds_sg" {
 }
 
 
-# Create an RDS instance________________________________________________________________
+
+
+# Create an RDS instance and subnet group______________________________________________
+
+# Create a DB Subnet Group
+resource "aws_db_subnet_group" "rds_subnet_group" {
+  name       = "rds-subnet-group"
+  subnet_ids = [aws_subnet.public_subnet_1.id, aws_subnet.public_subnet_2.id]
+  tags = {
+    Name = "RDS Subnet Group"
+  }
+}
 
 resource "aws_db_instance" "rds_instance" {
   allocated_storage      = 10
@@ -66,6 +151,7 @@ resource "aws_db_instance" "rds_instance" {
   skip_final_snapshot    = true
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
   storage_encrypted      = true
+  db_subnet_group_name   = aws_db_subnet_group.rds_subnet_group.name
 
   tags = {
     Name = "${var.db_username}-instance"

@@ -25,3 +25,21 @@ variable "db_password" {
   description = "Password for the database"
   type        = string
 }
+
+variable "cidr_block" {
+  description = "List of CIDR blocks for database access"
+  type        = string
+  default     = "10.1.0.0/16"
+}
+
+variable "subnet_cidr_blocks" {
+  description = "List of subnet CIDR blocks"
+  type        = list(string)
+  default     = ["10.1.3.0/24","10.1.2.0/24"]
+}
+
+variable "vpc_name" {
+  description = "Name for the VPC"
+  type        = string
+  default     = "tungstennn-vpc"
+}
