@@ -21,11 +21,13 @@ The infrastructure and ETL process are automated and modular, demonstrating a ro
   - **Transform**: Data is cleaned, validated, and transformed using Pandas.
   - **Load**: The transformed data is inserted into an RDS MySQL database.
 
-- **Modular Scripts**: The ETL pipeline is divided into three Jupyter notebooks:
+- **Modular Scripts**: The three explanatory (and functional) Jupyter notebooks:
   1. `01_extract_data.ipynb`: Extracts data from S3 into a Pandas DataFrame.
   2. `02_transform_data.ipynb`: Cleans and transforms the data.
   3. `03_load_data.ipynb`: Loads the transformed data into the RDS MySQL database.
 
+- **Single Production-ready Script:
+  - 
 ---
 
 ## **Project Workflow**
