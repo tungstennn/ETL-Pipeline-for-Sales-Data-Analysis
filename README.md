@@ -8,25 +8,24 @@ This project implements an **ETL (Extract, Transform, Load) pipeline** using **A
 ## **Key Features**
 - **Infrastructure as Code**:
   - Provisioned using **Terraform**, including:
-    - A VPC with public subnets.
-    - An S3 bucket for raw data storage.
-    - An RDS MySQL instance for storing transformed data.
-    - Security groups to manage access control.
-  - All infrastructure is automatically created using Terraform.
+    - A VPC with public subnets
+    - An S3 bucket for raw data storage
+    - An RDS MySQL instance for storing transformed data
+    - Security groups to manage access control
+  - All infrastructure is automatically created using Terraform
 
 - **ETL Pipeline**:
-  - **Extract**: A CSV file is uploaded to an S3 bucket and extracted programmatically using Python and Boto3.
-  - **Transform**: Data is cleaned, validated, and transformed using Pandas.
-  - **Load**: The transformed data is inserted into an RDS MySQL database.
+  - **Extract**: A CSV file is uploaded to an S3 bucket and extracted programmatically using Python and Boto3
+  - **Transform**: Data is cleaned, validated, and transformed using Pandas
+  - **Load**: The transformed data is inserted into an RDS MySQL database
 
 - **Modular Scripts**: The three explanatory (and functional) Jupyter notebooks:
-  1. `01_extract_data.ipynb`: Extracts data from S3 into a Pandas DataFrame.
-  2. `02_transform_data.ipynb`: Cleans and transforms the data.
-  3. `03_load_data.ipynb`: Loads the transformed data into the RDS MySQL database.
-- **Single Production-ready Script**:
-
-
-  - 
+  1. `01_extract_data.ipynb`: Extracts data from S3 into a Pandas DataFrame
+  2. `02_transform_data.ipynb`: Cleans and transforms the data
+  3. `03_load_data.ipynb`: Loads the transformed data into the RDS MySQL database
+- **Production-ready Script**:
+  - Final single `etl_pipeline.py script that integrates all the the processes from the notebooks
+  - Cohesive file that represents production-ready code for seamless execution
 ---
 
 ## **Project Workflow**
