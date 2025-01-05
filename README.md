@@ -24,7 +24,7 @@ This project implements an **ETL (Extract, Transform, Load) pipeline** using **A
   2. `02_transform_data.ipynb`: Cleans and transforms the data
   3. `03_load_data.ipynb`: Loads the transformed data into the RDS MySQL database
 - **Production-ready Script**:
-  - Final single `etl_pipeline.py script that integrates all the the processes from the notebooks
+  - Final single `etl_pipeline.py` script that integrates all the the processes from the notebooks
   - Cohesive file that represents production-ready code for seamless execution
 ---
 
