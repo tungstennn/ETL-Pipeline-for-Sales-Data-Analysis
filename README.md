@@ -68,5 +68,5 @@ This project implements an **ETL (Extract, Transform, Load) pipeline** using **A
    - Expand on the README to include flow diagrams and visuals of the pipeline architecture.
 
 6. **Data Visualization**:
-    - Enhance the project by integrating a visualization tool (e.g., **Tableau** or **Power BI**) to create dashboards and meaningful insights from the transformed data in the RDS database.
+    - Enhance the project by integrating a visualization tool (**Tableau**) to create dashboards and meaningful insights from the transformed data in the RDS database.
 
