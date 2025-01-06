@@ -1,4 +1,4 @@
-# **ETL Pipeline with AWS Infrastructure**
+# **ETL Pipeline for Sales Analysis*
 
 ## **Project Overview**
 This project implements an **ETL (Extract, Transform, Load) pipeline** using **AWS services** and **Terraform** for infrastructure as code (IaC). The pipeline extracts raw data from an **S3 bucket**, transforms it using **Python (with Pandas)**, and loads the cleaned data into an **Amazon RDS MySQL database**.
