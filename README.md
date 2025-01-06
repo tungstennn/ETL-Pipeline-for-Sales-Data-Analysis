@@ -28,7 +28,7 @@ This project implements an **ETL (Extract, Transform, Load) pipeline** using **A
   - Cohesive file that represents production-ready code for seamless execution
 ---
 
-## **Project Workflow**
+## **Simplified Project Workflow**
 
 1. **Infrastructure Creation**:
    - S3 bucket is provisioned for raw data storage
