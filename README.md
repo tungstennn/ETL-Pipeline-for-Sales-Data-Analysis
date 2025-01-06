@@ -32,8 +32,7 @@ This project implements an **ETL (Extract, Transform, Load) pipeline** using **A
 
 1. **Infrastructure Creation**:
    - S3 bucket is provisioned for raw data storage
-   - RDS MySQL instance is set up with public access (for development purposes)
-
+   - RDS MySQL instance is set up with public access
 2. **ETL Process**:
    - **Extract**: The raw CSV file is fetched from the S3 bucket
    - **Transform**:
