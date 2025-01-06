@@ -43,7 +43,6 @@ This project implements an **ETL (Extract, Transform, Load) pipeline** using **A
 
 3. **Automation**:
    - Infrastructure creation is automated using Terraform
-   - ETL scripts run sequentially for end-to-end data processing
 
 ---
 
