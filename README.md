@@ -32,11 +32,12 @@ This project implements an **ETL (Extract, Transform, Load) pipeline** using **A
 
 ```mermaid
 flowchart TD
-    A((Start: Infrastructure Setup)) --> B[Upload Raw CSV to S3 Bucket]
-    B --> C[Extract Data from S3]
-    C --> D[Transform Data with Pandas]
-    D --> E[Load Data into RDS MySQL]
-    E --> F([Deploy & Automate Pipeline])
+    A((Start: Terraform Infrastructure Setup)) --> B[Provision S3 Bucket & RDS with Terraform]
+    B --> C[Upload Raw CSV to S3 Bucket]
+    C --> D[Extract Data from S3]
+    D --> E[Transform Data with Pandas]
+    E --> F[Load Data into RDS MySQL]
+    F --> G([Deploy & Automate Pipeline])
 ```
 ---
 
