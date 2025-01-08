@@ -30,19 +30,12 @@ This project implements an **ETL (Extract, Transform, Load) pipeline** using **A
 
 ## **Simplified Project Workflow**
 
-1. **Infrastructure Creation**:
-   - S3 bucket is provisioned for raw data storage
-   - RDS MySQL instance is set up with public access
-2. **ETL Process**:
-   - **Extract**: The raw CSV file is fetched from the S3 bucket
-   - **Transform**:
-     - Handle null values
-     - Standardize date formats
-     - Remove outliers (e.g., filter out sales above a specific threshold)
-   - **Load**: The cleaned data is inserted into the `sales_data` table in RDS
-
-3. **Automation**:
-   - Infrastructure creation is automated using Terraform
+flowchart TD
+    A((Start: Infrastructure Setup)) --> B[Upload Raw CSV to S3 Bucket]
+    B --> C[Extract Data from S3]
+    C --> D[Transform Data with Pandas]
+    D --> E[Load Data into RDS MySQL]
+    E --> F([Deploy & Automate Pipeline])
 
 ---
 
