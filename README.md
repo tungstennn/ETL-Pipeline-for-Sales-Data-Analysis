@@ -57,9 +57,6 @@ flowchart TD
 4. **Improved ETL Triggers**:
    - Instead of manually triggering the ETL pipeline, implement an **AWS Lambda function** or a scheduled job to automatically start the ETL process when a new file is uploaded to the S3 bucket
 
-5. **Documentation**:
-   - Expand on the README to include flow diagrams and visuals of the pipeline architecture
-
-6. **Data Visualization**:
+5. **Data Visualization**:
     - Enhance the project by integrating a visualization tool (**Tableau**) to create dashboards and meaningful insights from the transformed data in the RDS database
 
